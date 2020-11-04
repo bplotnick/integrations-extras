@@ -1,0 +1,34 @@
+{
+  "display_name": "envoy_certs",
+  "maintainer": "ben.plotnick@getcruise.com",
+  "manifest_version": "1.0.0",
+  "name": "envoy_certs",
+  "metric_prefix": "envoy_certs.",
+  "metric_to_check": "",
+  "creates_events": false,
+  "short_description": "",
+  "guid": "ba386fa3-0abd-4b2f-ad25-755daba27b77",
+  "support": "contrib",
+  "supported_os": [
+    "linux",
+    "mac_os",
+    "windows"
+  ],
+  "public_title": "envoy_certs",
+  "categories": [
+    ""
+  ],
+  "type": "check",
+  "is_public": false,
+  "integration_id": "envoy-certs",
+  "assets": {
+    "configuration": {
+      "spec": "assets/configuration/spec.yaml"
+    },
+    "dashboards": {},
+    "monitors": {},
+    "saved_views": {},
+    "service_checks": "assets/service_checks.json",
+    "logs": {}
+  }
+}

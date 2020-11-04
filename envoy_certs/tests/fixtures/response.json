@@ -1,0 +1,93 @@
+{
+    "certificates": [
+    {
+    "ca_cert": [],
+    "cert_chain": [
+     {
+      "path": "\u003cinline\u003e",
+      "serial_number": "deadbeefdeadbeefdeadbeefdeadbeef",
+      "subject_alt_names": [
+       {
+        "dns": "*.example.com"
+       },
+       {
+        "dns": "example.com"
+       }
+      ],
+      "days_until_expiration": "105",
+      "valid_from": "2019-02-12T00:00:00Z",
+      "expiration_time": "2021-02-11T23:59:59Z"
+     }
+    ]
+   },
+   {
+    "ca_cert": [],
+    "cert_chain": [
+     {
+      "path": "\u003cinline\u003e",
+      "serial_number": "abcd1234abcd1234abcd1234abcd1234",
+      "subject_alt_names": [
+       {
+        "dns": "*.dev.example.com"
+       }
+      ],
+      "days_until_expiration": "52",
+      "valid_from": "2020-09-21T19:01:51Z",
+      "expiration_time": "2020-12-20T19:01:51Z"
+     }
+    ]
+    },
+    {
+    "ca_cert": [
+     {
+      "path": "\u003cinline\u003e",
+      "serial_number": "deadcafedeadcafe",
+      "subject_alt_names": [],
+      "days_until_expiration": "2619",
+      "valid_from": "2018-01-01T00:00:00Z",
+      "expiration_time": "2027-12-31T23:59:59Z"
+     }
+    ],
+    "cert_chain": [
+     {
+      "path": "\u003cinline\u003e",
+      "serial_number": "12345678901234567890123456789012",
+      "subject_alt_names": [
+       {
+        "uri": "spiffe://some.trust.domain/ns/istio-system/sa/istio-ingressgateway-service-account"
+       }
+      ],
+      "days_until_expiration": "0",
+      "valid_from": "2020-10-28T21:13:25Z",
+      "expiration_time": "2020-10-29T21:13:25Z"
+     }
+    ]
+    },
+    {
+    "ca_cert": [
+     {
+      "path": "\u003cinline\u003e",
+      "serial_number": "deadcafedeadcafe",
+      "subject_alt_names": [],
+      "days_until_expiration": "2619",
+      "valid_from": "2018-01-01T00:00:00Z",
+      "expiration_time": "2027-12-31T23:59:59Z"
+     }
+    ],
+    "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f5c7782da28f4bf935f87d21b6a99c5c",
+     "subject_alt_names": [
+      {
+        "uri": "spiffe://some.trust.domain/ns/istio-system/sa/istio-ingressgateway-service-account"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2020-10-28T21:13:25Z",
+     "expiration_time": "2020-10-29T21:13:25Z"
+    }
+   ]
+  }
+ ]
+}

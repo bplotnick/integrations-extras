@@ -1,0 +1,2 @@
+metric_name,metric_type,interval,unit_name,per_unit_name,description,orientation,integration,short_name
+envoy_certs.days_until_expiration,gauge,,day,,Days until the certificate expires,1,envoy_certs,
