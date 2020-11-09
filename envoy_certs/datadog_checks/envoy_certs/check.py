@@ -19,29 +19,29 @@ class EnvoyCertsCheck(AgentCheck):
         custom_tags = self.instance.get('tags', [])
 
         try:
-            stats_url = self.instance['stats_url']
+            certs_url = self.instance['certs_url']
         except KeyError:
-            msg = 'Envoy configuration setting `stats_url` is required'
+            msg = 'Envoy configuration setting `certs_url` is required'
             self.service_check(self.SERVICE_CHECK_NAME, AgentCheck.CRITICAL, message=msg, tags=custom_tags)
             self.log.error(msg)
             return
 
         try:
-            response = self.http.get(stats_url)
+            response = self.http.get(certs_url)
         except requests.exceptions.Timeout:
             timeout = self.http.options['timeout']
-            msg = 'Envoy endpoint `{}` timed out after {} seconds'.format(stats_url, timeout)
+            msg = 'Envoy endpoint `{}` timed out after {} seconds'.format(certs_url, timeout)
             self.service_check(self.SERVICE_CHECK_NAME, AgentCheck.CRITICAL, message=msg, tags=custom_tags)
             self.log.exception(msg)
             return
         except (requests.exceptions.RequestException, requests.exceptions.ConnectionError):
-            msg = 'Error accessing Envoy endpoint `{}`'.format(stats_url)
+            msg = 'Error accessing Envoy endpoint `{}`'.format(certs_url)
             self.service_check(self.SERVICE_CHECK_NAME, AgentCheck.CRITICAL, message=msg, tags=custom_tags)
             self.log.exception(msg)
             return
 
         if response.status_code != 200:
-            msg = 'Envoy endpoint `{}` responded with HTTP status code {}'.format(stats_url, response.status_code)
+            msg = 'Envoy endpoint `{}` responded with HTTP status code {}'.format(certs_url, response.status_code)
             self.service_check(self.SERVICE_CHECK_NAME, AgentCheck.CRITICAL, message=msg, tags=custom_tags)
             self.log.warning(msg)
             return
@@ -59,6 +59,8 @@ class EnvoyCertsCheck(AgentCheck):
             # FIXME(plotnick): Until we can get a real name, we have to try to come up
             # with a name ourselves using some heuristics
             self._cert_check(cert, custom_tags)
+
+        self.service_check(self.SERVICE_CHECK_NAME, AgentCheck.OK, tags=custom_tags)
 
     def _cert_check(self, cert, custom_tags):
         """ Runs a check over a single cert """

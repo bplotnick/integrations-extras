@@ -8,4 +8,4 @@ def dd_environment():
 
 @pytest.fixture
 def instance():
-    return {'stats_url': "http://fake.url:15000/certs"}
+    return {'certs_url': "http://fake.url:15000/certs"}
